@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fortify Intelligence — AI Governance for Private Equity</title>
+<meta name="description" content="Board-ready AI governance for mid-market private equity. Proprietary AGVI scoring framework, monthly executive briefings, and evidence-based risk coverage. $7,500/month retainer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0D1829;
+  --navy-90: #131F35;
+  --navy-80: #1A2A45;
+  --gold: #C9A84C;
+  --gold-light: #D4BC72;
+  --gold-muted: rgba(201,168,76,0.15);
+  --ice: #C8D8F0;
+  --ice-light: #E8EFF8;
+  --ice-ultra: #F2F6FC;
+  --white: #FFFFFF;
+  --off-white: #F7F8FA;
+  --charcoal: #2C3E50;
+  --slate: #64748B;
+  --danger: #DC2626;
+  --warning: #D97706;
+  --medium: #2563EB;
+  --success: #16A34A;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', Calibri, Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--charcoal); line-height: 1.6; background: var(--white); overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; }
+
+/* Navigation */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 20px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.4s ease;
+}
+.nav.scrolled {
+  background: rgba(13,24,41,0.95);
+  backdrop-filter: blur(20px);
+  padding: 14px 48px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+}
+.nav-logo .hex { color: var(--gold); font-size: 24px; }
+.nav-logo span {
+  font-family: var(--font-display);
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.nav-links { display: flex; align-items: center; gap: 36px; }
+.nav-links a {
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  background: var(--gold) !important;
+  color: var(--navy) !important;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+}
+.nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 800px 600px at 20% 50%, rgba(201,168,76,0.07) 0%, transparent 100%),
+    radial-gradient(ellipse 600px 800px at 80% 20%, rgba(200,216,240,0.04) 0%, transparent 100%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 200px;
+  background: linear-gradient(to top, var(--navy), transparent);
+  pointer-events: none;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 160px 48px 120px;
+  position: relative;
+  z-index: 2;
+}
+.hero-content { max-width: 780px; }
+.hero-overline {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-overline::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.5vw, 64px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 28px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero-sub {
+  font-size: 18px;
+  color: var(--ice);
+  line-height: 1.7;
+  max-width: 580px;
+  margin-bottom: 48px;
+  opacity: 0.85;
+}
+.hero-stats {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.hero-stat .num {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.hero-stat .label {
+  font-size: 13px;
+  color: var(--ice);
+  opacity: 0.6;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 16px 32px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.3); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--ice);
+  padding: 16px 32px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 15px;
+  border: 1px solid rgba(200,216,240,0.25);
+  transition: all 0.3s;
+}
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+/* Section shared */
+.section-pad { padding: 120px 48px; }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.section-desc {
+  font-size: 17px;
+  color: var(--slate);
+  line-height: 1.7;
+  max-width: 640px;
+  margin-bottom: 56px;
+}
+
+/* Problem Section */
+.problem { background: var(--off-white); }
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.problem-card {
+  background: var(--white);
+  padding: 36px;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.problem-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(13,24,41,0.08);
+  border-color: var(--gold);
+}
+.problem-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+}
+.problem-card:nth-child(1)::before { background: var(--danger); }
+.problem-card:nth-child(2)::before { background: var(--warning); }
+.problem-card:nth-child(3)::before { background: var(--medium); }
+.problem-card:nth-child(4)::before { background: var(--danger); }
+.problem-card .tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.problem-card:nth-child(1) .tag { color: var(--danger); }
+.problem-card:nth-child(2) .tag { color: var(--warning); }
+.problem-card:nth-child(3) .tag { color: var(--medium); }
+.problem-card:nth-child(4) .tag { color: var(--danger); }
+.problem-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+.problem-card p { font-size: 15px; color: var(--slate); line-height: 1.6; }
+
+/* Solution / Pillars */
+.pillars { background: var(--navy); }
+.pillars .section-title { color: var(--white); }
+.pillars .section-desc { color: var(--ice); opacity: 0.75; }
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.pillar-card {
+  background: var(--navy-80);
+  border-radius: 12px;
+  padding: 40px 32px;
+  border: 1px solid rgba(200,216,240,0.08);
+  transition: all 0.3s;
+  position: relative;
+}
+.pillar-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+}
+.pillar-num {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--gold);
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.pillar-card h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.pillar-card p { font-size: 15px; color: var(--ice); line-height: 1.6; opacity: 0.7; }
+.pillar-card ul {
+  list-style: none;
+  margin-top: 24px;
+  padding: 0;
+}
+.pillar-card li {
+  font-size: 14px;
+  color: var(--ice);
+  padding: 8px 0;
+  border-top: 1px solid rgba(200,216,240,0.08);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pillar-card li::before {
+  content: '→';
+  color: var(--gold);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* AGVI Framework */
+.fagi { background: var(--white); }
+.fagi-visual {
+  background: var(--navy);
+  border-radius: 16px;
+  padding: 56px 48px;
+  margin-top: 20px;
+}
+.fagi-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.fagi-header h3 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.fagi-header p {
+  font-size: 15px;
+  color: var(--ice);
+  opacity: 0.6;
+}
+.fagi-domains {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.fagi-domain {
+  background: var(--navy-80);
+  border-radius: 10px;
+  padding: 24px 20px;
+  text-align: center;
+  border: 1px solid rgba(200,216,240,0.06);
+  transition: all 0.3s;
+}
+.fagi-domain:hover { border-color: var(--gold); }
+.fagi-domain .score {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.fagi-domain .name {
+  font-size: 12px;
+  color: var(--ice);
+  margin-top: 8px;
+  opacity: 0.7;
+  line-height: 1.3;
+}
+.fagi-composite {
+  text-align: center;
+  padding: 24px;
+  background: rgba(201,168,76,0.08);
+  border-radius: 10px;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+.fagi-composite .big {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.fagi-composite .label {
+  font-size: 13px;
+  color: var(--ice);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 4px;
+  opacity: 0.6;
+}
+.fagi-maturity {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 24px;
+}
+.fagi-maturity span {
+  font-size: 11px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  color: var(--ice);
+  opacity: 0.5;
+  letter-spacing: 1px;
+}
+.fagi-maturity .active {
+  background: var(--gold);
+  color: var(--navy);
+  opacity: 1;
+  font-weight: 600;
+}
+
+/* Timeline */
+.timeline { background: var(--off-white); }
+.timeline-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  margin-top: 20px;
+}
+.timeline-track::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: linear-gradient(to right, var(--gold), var(--ice));
+}
+.tl-item { text-align: center; position: relative; }
+.tl-dot {
+  width: 16px; height: 16px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin: 28px auto 24px;
+  position: relative;
+  z-index: 2;
+  border: 3px solid var(--off-white);
+  box-shadow: 0 0 0 2px var(--gold);
+}
+.tl-phase {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.tl-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.tl-time {
+  font-size: 13px;
+  color: var(--slate);
+  margin-bottom: 16px;
+}
+.tl-items {
+  text-align: left;
+  padding: 0 20px;
+}
+.tl-items li {
+  font-size: 13px;
+  color: var(--slate);
+  margin-bottom: 6px;
+  padding-left: 16px;
+  position: relative;
+  list-style: none;
+  line-height: 1.5;
+}
+.tl-items li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* Built For */
+.built-for { background: var(--white); }
+.persona-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.persona-card {
+  padding: 40px 32px;
+  background: var(--ice-ultra);
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  transition: all 0.3s;
+}
+.persona-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(13,24,41,0.08);
+}
+.persona-card .role {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.persona-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.persona-card p { font-size: 15px; color: var(--slate); line-height: 1.6; }
+
+/* Pricing */
+.pricing { background: var(--navy); }
+.pricing .section-title { color: var(--white); }
+.pricing .section-desc { color: var(--ice); opacity: 0.75; }
+.pricing-card {
+  max-width: 700px;
+  background: var(--navy-80);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 16px;
+  padding: 56px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--gold), var(--gold-light));
+}
+.pricing-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.pricing-amount .dollar {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.pricing-amount .period {
+  font-size: 18px;
+  color: var(--ice);
+  opacity: 0.5;
+}
+.pricing-terms {
+  font-size: 15px;
+  color: var(--ice);
+  opacity: 0.6;
+  margin-bottom: 36px;
+}
+.pricing-includes {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 36px;
+}
+.pricing-includes li {
+  padding: 12px 0;
+  border-top: 1px solid rgba(200,216,240,0.08);
+  font-size: 15px;
+  color: var(--ice);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.pricing-includes li::before {
+  content: '✓';
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.pricing-note {
+  font-size: 14px;
+  color: var(--ice);
+  opacity: 0.5;
+  font-style: italic;
+  margin-top: 24px;
+  line-height: 1.6;
+}
+
+/* Regulatory urgency */
+.urgency { background: var(--off-white); }
+.urgency-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.urgency-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 32px;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  gap: 20px;
+}
+.urgency-date {
+  flex-shrink: 0;
+  text-align: center;
+  padding: 12px 16px;
+  background: var(--navy);
+  border-radius: 8px;
+  min-width: 80px;
+}
+.urgency-date .month {
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.urgency-date .year {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--white);
+}
+.urgency-body h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.urgency-body p { font-size: 14px; color: var(--slate); line-height: 1.6; }
+
+/* CTA */
+.cta {
+  background: var(--navy);
+  text-align: center;
+  padding: 120px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.cta-content { position: relative; z-index: 2; }
+.cta h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+.cta p {
+  font-size: 17px;
+  color: var(--ice);
+  opacity: 0.7;
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+/* Footer */
+footer {
+  background: #080E18;
+  padding: 48px;
+  text-align: center;
+}
+footer .hex { color: var(--gold); font-size: 28px; margin-bottom: 12px; }
+footer p { font-size: 13px; color: var(--slate); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .problem-grid, .pillar-grid, .persona-grid, .urgency-grid, .fagi-domains { grid-template-columns: 1fr; }
+  .timeline-track { grid-template-columns: 1fr; }
+  .timeline-track::before { display: none; }
+  .hero-stats { flex-direction: column; gap: 24px; }
+  .nav-links { display: none; }
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-content > * { animation: fadeUp 0.8s ease-out both; }
+.hero-overline { animation-delay: 0.1s; }
+.hero h1 { animation-delay: 0.2s; }
+.hero-sub { animation-delay: 0.3s; }
+.hero-stats { animation-delay: 0.4s; }
+.hero-actions { animation-delay: 0.5s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">
+    <span class="hex">⬡</span>
+    <span>FORTIFY INTELLIGENCE</span>
+  </div>
+  <div class="nav-links">
+    <a href="#problem">The Problem</a>
+    <a href="#solution">Solution</a>
+    <a href="#framework">AGVI Framework</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact" class="nav-cta">Schedule a Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-overline">AI Governance for Private Equity</div>
+      <h1>Your AI is already making decisions.<br><em>Is it governed?</em></h1>
+      <p class="hero-sub">Fortify Intelligence delivers board-ready AI governance for mid-market PE firms — with a proprietary scoring framework, monthly executive briefings, and evidence-based risk documentation.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">8</div>
+          <div class="label">Scored Governance Domains</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">90d</div>
+          <div class="label">Baseline to Board-Ready</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">$7.5k</div>
+          <div class="label">Monthly Retainer</div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Schedule a Discovery Call →</a>
+        <a href="#solution" class="btn-secondary">See How It Works</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem section-pad" id="problem">
+  <div class="container">
+    <div class="section-label">The Problem</div>
+    <div class="section-title">AI adoption is outpacing<br>governance — by years.</div>
+    <p class="section-desc">72% of organizations now deploy AI, yet fewer than 30% have formal governance. Mid-market PE firms face a particular squeeze: too large to ignore it, too lean to build it internally.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="tag">Inventory Risk</div>
+        <h3>No Visibility Into AI Usage</h3>
+        <p>Most firms have inventoried less than 40% of their actual AI footprint. Shadow AI across portfolio companies is endemic and growing.</p>
+      </div>
+      <div class="problem-card">
+        <div class="tag">Board Risk</div>
+        <h3>Zero Documentation for LPs</h3>
+        <p>When an LP or regulator asks how you govern AI, silence is a material risk — not a minor gap. Documented governance posture is now a due diligence expectation.</p>
+      </div>
+      <div class="problem-card">
+        <div class="tag">Regulatory Risk</div>
+        <h3>Regulation Is Accelerating</h3>
+        <p>EU AI Act (Aug 2026), Colorado AI Act (Jun 2026), SEC examination priorities, and state-level legislation are creating a compliance minefield that moves faster than legal teams.</p>
+      </div>
+      <div class="problem-card">
+        <div class="tag">Capacity Risk</div>
+        <h3>Internal Teams Can't Own It</h3>
+        <p>AI governance demands cross-domain expertise — legal, technical, regulatory — that doesn't exist inside most mid-market PE firms. The gap isn't budget; it's bandwidth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="pillars section-pad" id="solution">
+  <div class="container">
+    <div class="section-label">The Solution</div>
+    <div class="section-title">Three pillars. One retainer.<br>Board-ready in 90 days.</div>
+    <p class="section-desc">The AI Governance Advising Retainer delivers a complete governance infrastructure through three integrated pillars — scoring, reporting, and executive accountability.</p>
+    <div class="pillar-grid">
+      <div class="pillar-card">
+        <div class="pillar-num">01</div>
+        <h3>AGVI Scorecard</h3>
+        <p>Evidence-based governance measurement across 8 domains, producing a composite 0–100 score with 5 maturity levels.</p>
+        <ul>
+          <li>Composite score with domain breakdown</li>
+          <li>Month-over-month delta tracking</li>
+          <li>Evidence log maintained and audit-ready</li>
+          <li>Scores only increase with verifiable proof</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">02</div>
+        <h3>AI Risk Intelligence Memo</h3>
+        <p>Board-ready executive memo delivered 48 hours before every monthly briefing — written for the C-suite, not the IT department.</p>
+        <ul>
+          <li>Risk Dashboard with severity rankings</li>
+          <li>Regulatory Watch with framework mapping</li>
+          <li>Decision Log with named owners</li>
+          <li>30-Day Action Calendar</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">03</div>
+        <h3>Executive Briefing</h3>
+        <p>A 60-minute structured session with your CRO, CIO, and General Counsel. Decision-first format — not a status update.</p>
+        <ul>
+          <li>Five decisions framed with options</li>
+          <li>Recommendations presented with evidence</li>
+          <li>Verbal commitments obtained in-session</li>
+          <li>Follow-up summary within 24 hours</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGVI FRAMEWORK -->
+<section class="fagi section-pad" id="framework">
+  <div class="container">
+    <div class="section-label">The Framework</div>
+    <div class="section-title">The AI Governance Velocity Index</div>
+    <p class="section-desc">8 scored domains. 0–100 composite. 5 maturity levels. The only PE-specific AI governance scoring framework on the market — built for board reporting, LP due diligence, and regulatory readiness.</p>
+    <div class="fagi-visual">
+      <div class="fagi-header">
+        <h3>Sample AGVI Assessment — Month 1 Baseline</h3>
+        <p>Scores represent a typical mid-market PE firm's starting position</p>
+      </div>
+      <div class="fagi-domains">
+        <div class="fagi-domain"><div class="score">32</div><div class="name">Oversight &<br>Accountability</div></div>
+        <div class="fagi-domain"><div class="score">28</div><div class="name">Policy &<br>Standards</div></div>
+        <div class="fagi-domain"><div class="score">15</div><div class="name">AI Inventory<br>& Registry</div></div>
+        <div class="fagi-domain"><div class="score">22</div><div class="name">Risk<br>Management</div></div>
+        <div class="fagi-domain"><div class="score">18</div><div class="name">Vendor<br>Management</div></div>
+        <div class="fagi-domain"><div class="score">25</div><div class="name">Data<br>Governance</div></div>
+        <div class="fagi-domain"><div class="score">10</div><div class="name">Ethics &<br>Fairness</div></div>
+        <div class="fagi-domain"><div class="score">20</div><div class="name">Security &<br>Resilience</div></div>
+      </div>
+      <div class="fagi-composite">
+        <div class="big">21 / 100</div>
+        <div class="label">Composite AGVI Score — Developing</div>
+      </div>
+      <div class="fagi-maturity">
+        <span>Ad Hoc (0–19)</span>
+        <span class="active">Developing (20–39)</span>
+        <span>Defined (40–59)</span>
+        <span>Managed (60–79)</span>
+        <span>Optimized (80–100)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline section-pad" id="timeline">
+  <div class="container">
+    <div class="section-label">Engagement Structure</div>
+    <div class="section-title">90 days from baseline to board-ready.</div>
+    <p class="section-desc">Every engagement follows a documented 4-phase sequence — no ambiguity, no scope creep, measurable progress at every checkpoint.</p>
+    <div class="timeline-track">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-phase">Pre</div>
+        <div class="tl-title">Discovery & Fit</div>
+        <div class="tl-time">Before Day 1</div>
+        <ul class="tl-items">
+          <li>45-min diagnostic call</li>
+          <li>No commitment required</li>
+          <li>Assess AI footprint & gaps</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-phase">Month 1</div>
+        <div class="tl-title">Kickoff & Baseline</div>
+        <div class="tl-time">Weeks 1–4</div>
+        <ul class="tl-items">
+          <li>90-min structured kickoff</li>
+          <li>AI inventory via declarations</li>
+          <li>AGVI baseline established</li>
+          <li>Risk register built</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-phase">Month 2</div>
+        <div class="tl-title">Analysis & Accountability</div>
+        <div class="tl-time">Weeks 5–8</div>
+        <ul class="tl-items">
+          <li>Critical risks remediated</li>
+          <li>Policy framework drafted</li>
+          <li>First executive briefing</li>
+          <li>Decision tracking begins</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-phase">Month 3</div>
+        <div class="tl-title">Governance Momentum</div>
+        <div class="tl-time">Weeks 9–12</div>
+        <ul class="tl-items">
+          <li>Full cadence operational</li>
+          <li>Board briefing package ready</li>
+          <li>Regulatory roadmap documented</li>
+          <li>Continuity handoff complete</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILT FOR -->
+<section class="built-for section-pad" id="audience">
+  <div class="container">
+    <div class="section-label">Built For</div>
+    <div class="section-title">The executives who own the risk.</div>
+    <p class="section-desc">Every deliverable is written for the people who make governance decisions — not the teams that implement them.</p>
+    <div class="persona-grid">
+      <div class="persona-card">
+        <div class="role">Chief Risk Officer</div>
+        <h3>Own AI risk without owning every technical detail</h3>
+        <p>The AGVI gives you a defensible, evidenced score you can present to the board — and a monthly briefing that surfaces only what requires your decision.</p>
+      </div>
+      <div class="persona-card">
+        <div class="role">Chief Investment Officer</div>
+        <h3>Governance as a due diligence asset</h3>
+        <p>Documented AI governance posture — with a scored framework and board materials — is a competitive differentiator at every stage of the fund cycle.</p>
+      </div>
+      <div class="persona-card">
+        <div class="role">Chief Compliance Officer</div>
+        <h3>Regulatory readiness before the regulation arrives</h3>
+        <p>We map your AI posture against applicable frameworks and build the documentation trail before you need it — across EU AI Act, SEC, and state-level requirements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGULATORY URGENCY -->
+<section class="urgency section-pad" id="urgency">
+  <div class="container">
+    <div class="section-label">Regulatory Convergence</div>
+    <div class="section-title">The window is closing.</div>
+    <p class="section-desc">Multiple regulatory deadlines converge in 2026, creating genuine urgency for PE firms with AI exposure across their portfolios.</p>
+    <div class="urgency-grid">
+      <div class="urgency-card">
+        <div class="urgency-date"><div class="month">Jun</div><div class="year">2026</div></div>
+        <div class="urgency-body">
+          <h4>Colorado AI Act</h4>
+          <p>Requires risk management programs, impact assessments, and algorithmic discrimination prevention for high-risk AI in employment, housing, credit, and healthcare.</p>
+        </div>
+      </div>
+      <div class="urgency-card">
+        <div class="urgency-date"><div class="month">Aug</div><div class="year">2026</div></div>
+        <div class="urgency-body">
+          <h4>EU AI Act — Full Application</h4>
+          <p>High-risk AI systems face penalties up to €35M or 7% of global turnover. Extraterritorial reach means any portfolio company with EU exposure must comply.</p>
+        </div>
+      </div>
+      <div class="urgency-card">
+        <div class="urgency-date"><div class="month">2026</div><div class="year">SEC</div></div>
+        <div class="urgency-body">
+          <h4>SEC Examination Priorities</h4>
+          <p>AI is explicitly a top examination priority. Scrutiny of AI-related disclosures, supervisory frameworks, and whether controls match actual practices.</p>
+        </div>
+      </div>
+      <div class="urgency-card">
+        <div class="urgency-date"><div class="month">2026</div><div class="year">UST</div></div>
+        <div class="urgency-body">
+          <h4>U.S. Treasury FS AI RMF</h4>
+          <p>230 control objectives across governance, data, model development, validation, and monitoring. Becoming the de facto standard for financial services.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing section-pad" id="pricing">
+  <div class="container">
+    <div class="section-label">Investment</div>
+    <div class="section-title">Retainer structure.</div>
+    <p class="section-desc">A fraction of a full-time hire. A fraction of the cost of the risk. Everything you need to be board-ready in 90 days.</p>
+    <div class="pricing-card">
+      <div class="pricing-amount">
+        <span class="dollar">$7,500</span>
+        <span class="period">/ month · 3-month minimum</span>
+      </div>
+      <div class="pricing-terms">Founding client rate available for initial launch cohort. Discovery call required.</div>
+      <ul class="pricing-includes">
+        <li>Monthly AGVI Scorecard with domain scoring session</li>
+        <li>AI Risk Intelligence Memo delivered before every briefing</li>
+        <li>60-minute monthly executive briefing</li>
+        <li>Weekly 45-minute office hours</li>
+        <li>Async Q&A — 3 questions/week, 48-hour turnaround</li>
+        <li>All templates, trackers, and policy starters</li>
+        <li>Regulatory framework mapping and monitoring</li>
+        <li>Evidence-based documentation trail</li>
+      </ul>
+      <a href="#contact" class="btn-primary" style="display: inline-flex;">Schedule a Discovery Call →</a>
+      <div class="pricing-note">Advisory, not software. Your governance posture is built by a human advisor with PE-native expertise — platform tooling handles data mechanics behind the scenes.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-content">
+    <div class="section-label" style="text-align:center;">Get Started</div>
+    <h2>Ready to govern<br>what you've built?</h2>
+    <p>Engagements are capacity-limited. We work with a small number of retainer clients to maintain the advisory quality the work requires.</p>
+    <a href="mailto:contact@fortifyintelligence.ai" class="btn-primary">Schedule a Discovery Call →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="hex">⬡</div>
+  <p>FORTIFY INTELLIGENCE · fortifyintelligence.ai<br>A wholly owned subsidiary of Fortify Capital, LLC</p>
+  <p style="margin-top: 8px; font-size: 11px; opacity: 0.5;">Confidential · AI Governance Advisory Practice</p>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+</body>
+</html>
