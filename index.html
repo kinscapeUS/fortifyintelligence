@@ -35,9 +35,8 @@ a { text-decoration: none; color: inherit; }
 
 .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; transition: all 0.4s ease; }
 .nav.scrolled { background: rgba(13,24,41,0.97); backdrop-filter: blur(20px); padding: 14px 48px; box-shadow: 0 4px 30px rgba(0,0,0,0.2); }
-.nav.scrolled .nav-links a { color: var(--gold) !important; }
-.nav.scrolled .nav-links a:hover { color: var(--gold-light) !important; }
-.nav.scrolled .nav-cta { background: var(--gold) !important; color: var(--navy) !important; }
+.nav.scrolled .nav-links a:not(.nav-cta) { color: var(--gold) !important; }
+.nav.scrolled .nav-links a:not(.nav-cta):hover { color: var(--gold-light) !important; }
 .nav-logo { display: flex; align-items: center; gap: 12px; }
 .nav-logo .hex { color: var(--gold); font-size: 24px; }
 .nav-logo span { font-family: var(--font-display); color: var(--white); font-size: 18px; font-weight: 600; letter-spacing: 2px; }
