@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Pequi Intelligence</title>
+<meta name="description" content="About Pequi Intelligence. Board-ready AI governance for software and payments companies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0D1829; --navy-80: #1A2A45; --gold: #C9A84C; --gold-light: #D4BC72;
+  --ice: #C8D8F0; --ice-light: #E8EFF8; --white: #FFFFFF; --off-white: #F7F8FA;
+  --charcoal: #2C3E50; --slate: #64748B;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', Calibri, Arial, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--charcoal); line-height: 1.6; background: var(--white); overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 48px; display: flex; align-items: center; justify-content: space-between; background: rgba(13,24,41,0.97); backdrop-filter: blur(20px); box-shadow: 0 4px 30px rgba(0,0,0,0.2); }
+.nav-logo { display: flex; align-items: center; }
+.nav-logo-full { height: 56px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 36px; }
+.nav-links a { color: var(--gold); font-size: 14px; font-weight: 500; transition: color 0.3s; }
+.nav-links a:hover { color: var(--gold-light); }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-about { color: var(--gold-light) !important; font-size: 14px; font-weight: 500; }
+.nav-cta { background: var(--gold) !important; color: var(--navy) !important; padding: 10px 24px; border-radius: 6px; font-weight: 600 !important; font-size: 13px !important; transition: all 0.3s; }
+.nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
+.page-hero { background: var(--navy); padding: 160px 48px 80px; position: relative; overflow: hidden; }
+.page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 800px 600px at 20% 50%, rgba(201,168,76,0.07) 0%, transparent 100%); pointer-events: none; }
+.page-hero .container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+.section-label { font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.page-hero h1 { font-family: var(--font-display); font-size: clamp(36px, 4vw, 52px); font-weight: 600; color: var(--white); line-height: 1.15; margin-bottom: 16px; }
+.page-hero p { font-size: 17px; color: var(--ice); opacity: 0.75; max-width: 640px; line-height: 1.7; }
+
+.section-pad { padding: 100px 48px; }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-title { font-family: var(--font-display); font-size: clamp(28px, 3vw, 40px); font-weight: 600; color: var(--navy); line-height: 1.2; margin-bottom: 20px; }
+.prose { font-size: 16px; color: var(--slate); line-height: 1.8; margin-bottom: 20px; max-width: 740px; }
+.phonetic { font-family: var(--font-body); font-size: 15px; color: var(--gold); font-weight: 500; }
+
+.philosophy { background: var(--off-white); }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
+.why-card { padding: 40px 36px; border-radius: 12px; border: 1px solid #E2E8F0; background: var(--white); }
+.why-card h3 { font-family: var(--font-display); font-size: 24px; font-weight: 600; color: var(--navy); margin-bottom: 12px; }
+.why-card p { font-size: 15px; color: var(--slate); line-height: 1.7; }
+
+.leader-section { background: var(--white); }
+.leader-card { padding: 56px 48px; background: var(--navy); border-radius: 16px; max-width: 900px; }
+.leader-name { font-family: var(--font-display); font-size: 32px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+.leader-title { font-size: 13px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+.leader-bio { font-size: 16px; color: var(--ice); line-height: 1.8; opacity: 0.85; }
+.creds { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.cred { font-size: 11px; font-weight: 600; color: var(--gold); background: rgba(201,168,76,0.1); padding: 8px 16px; border-radius: 4px; letter-spacing: 1px; }
+
+.independence { background: var(--off-white); }
+.independence-card { padding: 40px; background: var(--white); border-radius: 12px; border-left: 4px solid var(--gold); max-width: 800px; }
+.independence-card h3 { font-family: var(--font-display); font-size: 24px; font-weight: 600; color: var(--navy); margin-bottom: 12px; }
+.independence-card p { font-size: 15px; color: var(--slate); line-height: 1.7; }
+
+.cta { background: var(--navy); text-align: center; padding: 100px 48px; position: relative; overflow: hidden; }
+.cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 60%); pointer-events: none; }
+.cta-content { position: relative; z-index: 2; }
+.cta h2 { font-family: var(--font-display); font-size: clamp(32px, 3.5vw, 44px); font-weight: 600; color: var(--white); margin-bottom: 12px; line-height: 1.2; }
+.cta p { font-size: 16px; color: var(--ice); opacity: 0.7; max-width: 520px; margin: 0 auto 32px; line-height: 1.7; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy); padding: 16px 32px; border-radius: 6px; font-weight: 700; font-size: 15px; transition: all 0.3s; border: none; cursor: pointer; }
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.3); }
+
+footer { background: #080E18; padding: 48px; text-align: center; }
+footer p { font-size: 13px; color: var(--slate); }
+.back-to-top { display: inline-block; margin-top: 24px; padding: 12px 24px; font-size: 13px; font-weight: 600; color: var(--gold); border: 1px solid rgba(201,168,76,0.3); border-radius: 6px; letter-spacing: 1px; transition: all 0.3s; }
+.back-to-top:hover { background: rgba(201,168,76,0.1); }
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav { padding: 16px 24px; }
+  .nav-logo-full { height: 48px; }
+  .page-hero { padding: 140px 24px 60px; }
+  .section-pad { padding: 72px 24px; }
+  .why-grid { grid-template-columns: 1fr; }
+  .leader-card { padding: 32px 24px; }
+  .cta { padding: 72px 24px; }
+}
+</style>
+</head>
+<body id="top">
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="data:image/png;base64,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" alt="Pequi Intelligence — Board-Ready AI Governance" class="nav-logo-full">
+  </a>
+  <div class="nav-links">
+    <a href="index.html#problem">The Challenge</a>
+    <a href="index.html#solution">Solution</a>
+    <a href="index.html#framework">AGVI Framework</a>
+    <a href="index.html#pricing">Investment</a>
+  </div>
+  <div class="nav-right">
+    <a href="index.html" class="nav-about">Home</a>
+    <a href="about.html" class="nav-about">About</a>
+
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label">About Pequi Intelligence</div>
+    <h1>Bridging the gap between rapid AI adoption and executive accountability.</h1>
+    <p>Board-ready AI governance advisory built on evidence, structured for the C-suite, and designed to move at the speed your organization needs.</p>
+  </div>
+</section>
+
+<section class="philosophy section-pad">
+  <div class="container">
+    <div class="section-label">The Pequi Philosophy</div>
+    <div class="section-title">A prized fruit with hidden thorns.</div>
+    <p class="prose">We chose the name Pequi <span class="phonetic">[pa-KEE]</span> after a prized Brazilian fruit that serves as the perfect metaphor for enterprise AI. The pequi is highly valued for its yield, but it contains a core of hidden, needle-like thorns &mdash; extracting its reward safely requires a guided, precise approach.</p>
+    <p class="prose">AI presents the exact same dynamic. The operational advantages are undeniable, but the underlying complexities &mdash; undocumented shadow IT, accelerating regulatory timelines, and vulnerable consumer data &mdash; create massive exposure if handled blindly.</p>
+    <p class="prose">Pequi Intelligence provides the governance shield: structured frameworks that allow organizations to safely capture the immense value of AI while neutralizing the hidden risks.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <h3>Why We Built This Firm</h3>
+        <p>AI adoption is outpacing governance by years. Organizations are moving too fast to ignore AI, but lack the dedicated cross-domain expertise &mdash; legal, technical, regulatory &mdash; to govern it properly. With regulatory deadlines converging in 2026, silence on AI risk is no longer a minor gap. It is a material risk to operations, regulatory standing, and enterprise value. Pequi Intelligence was founded to close this structural gap with evidence-based, advisor-led governance infrastructure.</p>
+      </div>
+      <div class="why-card">
+        <h3>Our Approach</h3>
+        <p>We replace ad-hoc compliance attempts with the proprietary AI Governance Velocity Index (AGVI) &mdash; a scored framework across eight governance domains that gives leadership a quantifiable, defensible posture. Every score is earned through verifiable evidence. Every risk has a named owner and deadline. Every deliverable is written for the C-suite, not the IT department. We are advisors, not implementers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="leader-section section-pad">
+  <div class="container">
+    <div class="section-label">Leadership</div>
+    <div class="section-title">The team behind the framework.</div>
+    <div class="leader-card">
+      <div class="leader-name">Jordon C. Pierce</div>
+      <div class="leader-title">Founder &amp; Managing Director, AI Governance Advising</div>
+      <p class="leader-bio">Jordon serves as the firm&rsquo;s principal authority on AI governance methodology and the architect of the proprietary AI Governance Velocity Index (AGVI). With 11+ years in enterprise security and compliance &mdash; including ServiceNow GRC implementations across risk, compliance, and third-party risk management; NIST CSF and SP 800-53 risk framework execution; and security operations supporting the Secretary of Defense &mdash; he brings deep cross-domain expertise in translating complex regulatory and technical requirements into structured, executive-ready governance programs.</p>
+      <p class="leader-bio" style="margin-top: 16px;">Jordon maintains direct accountability for engagement quality and the firm&rsquo;s regulatory credibility, serving as the primary client-facing governance advisor for all executive briefings. He owns the AGVI scoring framework across all eight governance domains, ensuring evidence-based rigor and strict alignment with the EU AI Act, the Colorado AI Act, and SEC examination priorities.</p>
+      <div class="creds">
+        <span class="cred">CISSP</span>
+        <span class="cred">M.S. Cybersecurity Technology</span>
+        <span class="cred">NIST CSF / SP 800-53</span>
+        <span class="cred">ServiceNow GRC &amp; SecOps</span>
+        <span class="cred">11+ Years Enterprise Security</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="independence section-pad">
+  <div class="container">
+    <div class="section-label">Independence</div>
+    <div class="section-title">Our commitment to objectivity.</div>
+    <div class="independence-card">
+      <h3>Assessment Independence</h3>
+      <p>All AGVI assessments are conducted independently and reflect objective governance positioning. Our Strategic Alliance Network &mdash; partnerships with select AI vendors to help organizations implement governance solutions &mdash; operates separately from our advisory practice. We maintain strict firewalls to ensure that our assessments are unbiased and focused solely on your governance maturity and regulatory readiness.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-content">
+    <div class="section-label" style="text-align: center;">Ready to Start?</div>
+    <h2>Strengthen your AI<br>governance posture.</h2>
+    <p>The Colorado AI Act deadline arrives June 2026. A 30-minute discovery call to assess where you stand and what needs to happen next.</p>
+    <a href="https://calendly.com/jordon-pierce-pm/30min" target="_blank" class="btn-primary">Schedule a Discovery Call &rarr;</a>
+  </div>
+</section>
+
+<footer>
+  <img src="data:image/png;base64,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" alt="Pequi Intelligence" style="height: 40px; width: auto; margin-bottom: 12px;">
+  <p>PEQUI INTELLIGENCE &middot; pequiintelligence.com</p>
+  <p style="margin-top: 4px; font-size: 11px; color: #C9A84C; opacity: 0.7; letter-spacing: 2px;">Board-Ready AI Governance</p>
+  <p style="margin-top: 8px; font-size: 11px; opacity: 0.5;">AI Governance Advisory Practice</p>
+  <a href="#top" class="back-to-top">&uarr; Back to Top</a>
+</footer>
+
+</body>
+</html>
