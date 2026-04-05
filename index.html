@@ -43,6 +43,11 @@ a { text-decoration: none; color: inherit; }
 .nav-links { display: flex; align-items: center; gap: 36px; }
 .nav-links a { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.3s; }
 .nav-links a:hover { color: var(--gold); }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-about { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.3s; }
+.nav-about:hover { color: var(--gold); }
+.nav.scrolled .nav-about { color: var(--gold) !important; }
+.nav.scrolled .nav-about:hover { color: var(--gold-light) !important; }
 .nav-cta { background: var(--gold) !important; color: var(--navy) !important; padding: 10px 24px; border-radius: 6px; font-weight: 600 !important; font-size: 13px !important; transition: all 0.3s; }
 .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
 
@@ -212,7 +217,11 @@ footer p { font-size: 13px; color: var(--slate); }
     <a href="#solution">Solution</a>
     <a href="#framework">AGVI Framework</a>
     <a href="#pricing">Investment</a>
-    <a href="https://calendly.com/jordon-pierce-pm/30min" target="_blank" class="nav-cta">Schedule a Call</a>
+  </div>
+  <div class="nav-right">
+    <a href="index.html" class="nav-about">Home</a>
+    <a href="about.html" class="nav-about">About</a>
+
   </div>
 </nav>
 
