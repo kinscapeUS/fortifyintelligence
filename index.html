@@ -132,7 +132,7 @@ a { text-decoration: none; color: inherit; }
 .tl-items li::before { content: '›'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
 
 .built-for { background: var(--white); }
-.persona-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.persona-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
 .persona-card { padding: 40px 32px; background: var(--ice-ultra); border-radius: 12px; border: 1px solid #E2E8F0; transition: all 0.3s; }
 .persona-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(13,24,41,0.08); }
 .persona-card .role { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
@@ -140,6 +140,19 @@ a { text-decoration: none; color: inherit; }
 .persona-card p { font-size: 15px; color: var(--slate); line-height: 1.6; }
 
 .urgency { background: var(--off-white); }
+.standards { background: var(--white); }
+.standards-intro { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; align-items: start; margin-bottom: 56px; }
+.standards-intro .coverage-card { background: var(--navy); border-radius: 12px; padding: 32px 28px; color: var(--ice); }
+.standards-intro .coverage-card .big { font-family: var(--font-display); font-size: 56px; font-weight: 700; color: var(--gold); line-height: 1; }
+.standards-intro .coverage-card .label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--ice); opacity: 0.65; margin-top: 8px; }
+.standards-intro .coverage-card p { font-size: 13px; line-height: 1.6; opacity: 0.75; margin-top: 20px; }
+.standards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.standard-card { background: var(--white); border: 1px solid #E2E8F0; border-radius: 10px; padding: 24px 22px; transition: all 0.3s; position: relative; }
+.standard-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(13,24,41,0.08); }
+.standard-card .jurisdiction { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.standard-card h4 { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--navy); line-height: 1.25; margin-bottom: 10px; }
+.standard-card p { font-size: 13px; color: var(--slate); line-height: 1.55; }
+.standards-footnote { font-size: 13px; color: var(--slate); text-align: center; margin-top: 40px; font-style: italic; max-width: 780px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 .urgency-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .urgency-card { background: var(--white); border-radius: 12px; padding: 32px; border: 1px solid #E2E8F0; display: flex; gap: 20px; }
 .urgency-date { flex-shrink: 0; text-align: center; padding: 12px 16px; background: var(--navy); border-radius: 8px; min-width: 80px; }
@@ -182,6 +195,8 @@ footer p { font-size: 13px; color: var(--slate); }
   .timeline-track { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
   .timeline-track::before { display: none; }
   .fagi-domains { grid-template-columns: repeat(3, 1fr); }
+  .standards-grid { grid-template-columns: repeat(2, 1fr); }
+  .standards-intro { grid-template-columns: 1fr; gap: 32px; }
   .section-pad { padding: 100px 32px; }
   .hero-grid { padding: 140px 32px 100px; }
 }
@@ -216,6 +231,9 @@ footer p { font-size: 13px; color: var(--slate); }
   .ladder-grid { grid-template-columns: 1fr; gap: 16px; }
   .ladder-card { padding: 32px 24px; }
   .ladder-card.featured::before { font-size: 9px; padding: 5px 12px; }
+  .standards-grid { grid-template-columns: 1fr; }
+  .standards-intro .coverage-card { padding: 28px 24px; }
+  .standards-intro .coverage-card .big { font-size: 48px; }
   .urgency-card { flex-direction: column; gap: 16px; padding: 28px 24px; }
   .urgency-date { align-self: flex-start; }
   .cta { padding: 80px 24px; }
@@ -260,6 +278,7 @@ footer p { font-size: 13px; color: var(--slate); }
     <a href="#problem">The Challenge</a>
     <a href="#solution">Solution</a>
     <a href="#framework">AGVI Framework</a>
+    <a href="#standards">Standards</a>
     <a href="#pricing">Engagements</a>
   </div>
   <div class="nav-right">
@@ -276,7 +295,7 @@ footer p { font-size: 13px; color: var(--slate); }
       <h1>AI moved faster than your governance.<br><em>Close the gap before it costs you.</em></h1>
       <p class="hero-sub">Pequi Intelligence delivers board-ready AI governance through a proprietary scored framework and productized engagements &mdash; from a four-week baseline diagnostic through full advisory retainer &mdash; for organizations facing regulatory deadlines, investor scrutiny, or transaction timelines.</p>
       <div class="hero-actions">
-        <a href="https://calendly.com/jordon-pierce-pm/30min" target="_blank" class="btn-primary">Schedule a Discovery Call &rarr;</a>
+        <a href="https://meetings-na2.hubspot.com/jordon-pierce" target="_blank" class="btn-primary">Schedule a Discovery Call &rarr;</a>
         <a href="#pricing" class="btn-secondary">See Engagement Options</a>
       </div>
     </div>
@@ -305,9 +324,9 @@ footer p { font-size: 13px; color: var(--slate); }
         <p>Boards, investors, LPs, and transaction buyers now expect documented AI governance posture &mdash; not a narrative of good intentions. Organizations that scramble at the deadline, the board meeting, or the LOI stage face valuation pressure and timeline extensions.</p>
       </div>
       <div class="problem-card">
-        <div class="tag">Capacity Risk</div>
-        <h3>Cross-Domain Expertise Is Scarce</h3>
-        <p>Governing AI requires legal, technical, regulatory, and operational fluency in one person. Most mid-market organizations can't build that internally &mdash; and a full-time AI governance hire runs $150K&ndash;$250K fully loaded before the first policy is written.</p>
+        <div class="tag">Shadow AI Risk</div>
+        <h3>Tools You Don't Know Are Running</h3>
+        <p>AI enters the organization through individual subscriptions, acquired companies, and vendor feature updates that flip AI on without notice. Most mid-market organizations can't name half the AI tools touching their data &mdash; and you can't govern what isn't inventoried.</p>
       </div>
     </div>
   </div>
@@ -322,7 +341,7 @@ footer p { font-size: 13px; color: var(--slate); }
       <div class="pillar-card">
         <div class="pillar-num">01</div>
         <h3>AGVI Scorecard</h3>
-        <p>Evidence-based governance measurement across nine domains, producing a composite 0&ndash;100 score mapped to five maturity levels. Scores only advance with verifiable documentation &mdash; never self-attestation.</p>
+        <p>The AI Governance Velocity Index (AGVI&trade;) delivers evidence-based governance measurement across nine domains, producing a composite 0&ndash;100 score mapped to five maturity levels. Scores only advance with verifiable documentation &mdash; never self-attestation.</p>
         <ul>
           <li>Composite score with domain breakdown</li>
           <li>Month-over-month delta tracking</li>
@@ -364,82 +383,84 @@ footer p { font-size: 13px; color: var(--slate); }
     <div class="fagi-visual">
       <div class="fagi-header">
         <h3>Illustrative AGVI Assessment &mdash; Month 1 Baseline</h3>
-        <p>Scores represent a typical starting position for a mid-market organization with active AI deployment and no formal governance program</p>
+        <p>A typical starting position for a mid-market organization with a foundation in place and meaningful gaps to close before reaching Managed maturity</p>
       </div>
       <div class="fagi-domains">
-        <div class="fagi-domain"><div class="score">32</div><div class="name">Oversight &amp;<br>Accountability</div></div>
-        <div class="fagi-domain"><div class="score">28</div><div class="name">Policy &amp;<br>Standards</div></div>
-        <div class="fagi-domain"><div class="score">20</div><div class="name">AI Inventory<br>&amp; Registry</div></div>
-        <div class="fagi-domain"><div class="score">25</div><div class="name">Vendor &amp;<br>Third-Party Risk</div></div>
-        <div class="fagi-domain"><div class="score">18</div><div class="name">Monitoring &amp;<br>Incident Mgmt</div></div>
-        <div class="fagi-domain"><div class="score">22</div><div class="name">Incident Response<br>Readiness</div></div>
-        <div class="fagi-domain"><div class="score">30</div><div class="name">AI Security<br>Controls</div></div>
-        <div class="fagi-domain"><div class="score">26</div><div class="name">Workforce<br>AI Literacy</div></div>
-        <div class="fagi-domain"><div class="score">15</div><div class="name">Agentic &amp; Autonomous<br>AI Governance</div></div>
+        <div class="fagi-domain"><div class="score">48</div><div class="name">Oversight &amp;<br>Accountability</div></div>
+        <div class="fagi-domain"><div class="score">42</div><div class="name">Policy &amp;<br>Standards</div></div>
+        <div class="fagi-domain"><div class="score">32</div><div class="name">AI Inventory<br>&amp; Registry</div></div>
+        <div class="fagi-domain"><div class="score">38</div><div class="name">Vendor &amp;<br>Third-Party Risk</div></div>
+        <div class="fagi-domain"><div class="score">35</div><div class="name">Monitoring &amp;<br>Incident Mgmt</div></div>
+        <div class="fagi-domain"><div class="score">40</div><div class="name">Incident Response<br>Readiness</div></div>
+        <div class="fagi-domain"><div class="score">52</div><div class="name">AI Security<br>Controls</div></div>
+        <div class="fagi-domain"><div class="score">45</div><div class="name">Workforce<br>AI Literacy</div></div>
+        <div class="fagi-domain"><div class="score">38</div><div class="name">Agentic &amp; Autonomous<br>AI Governance</div></div>
       </div>
       <div class="fagi-composite">
-        <div class="big">24 / 100</div>
-        <div class="label">Composite AGVI Score &mdash; Developing</div>
+        <div class="big">41 / 100</div>
+        <div class="label">Composite AGVI Score &mdash; Defined</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="timeline section-pad" id="timeline">
+<section class="standards section-pad" id="standards">
   <div class="container">
-    <div class="section-label">Engagement Path</div>
-    <div class="section-title">A productized ladder.<br>Match the engagement to the timeline.</div>
-    <p class="section-desc">Every engagement starts with a diagnostic and scales from there. Whether you need a four-week baseline, a full 90-day remediation, or continuous advisory support, the entry point is the same and the methodology is consistent all the way through.</p>
-    <div class="timeline-track">
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-phase">Stage 1</div>
-        <div class="tl-title">AGVI<br>Diagnostic</div>
-        <div class="tl-time">4 weeks &middot; fixed fee</div>
-        <ul class="tl-items">
-          <li>Baseline scoring across 9 domains</li>
-          <li>AI inventory and classification</li>
-          <li>Regulatory exposure memo</li>
-          <li>Board-ready findings deck</li>
-        </ul>
+    <div class="section-label">Standards Mapping</div>
+    <div class="section-title">One framework.<br>Mapped to every standard that matters.</div>
+    <p class="section-desc">The AGVI isn't a competing framework &mdash; it's a scoring layer that maps directly to the regulations, standards, and guidance instruments shaping AI governance worldwide. Every score produced in an AGVI assessment is traceable to specific clauses, articles, and control objectives across eight major frameworks.</p>
+    <div class="standards-intro">
+      <div>
+        <div class="standards-grid">
+          <div class="standard-card">
+            <div class="jurisdiction">United States</div>
+            <h4>NIST AI RMF 1.0</h4>
+            <p>Govern, Map, Measure, Manage functions. The voluntary baseline U.S. regulators and auditors increasingly expect to see.</p>
+          </div>
+          <div class="standard-card">
+            <div class="jurisdiction">International</div>
+            <h4>ISO/IEC 42001:2023</h4>
+            <p>The first certifiable AI management system standard. Increasingly requested in enterprise procurement and M&amp;A due diligence.</p>
+          </div>
+          <div class="standard-card">
+            <div class="jurisdiction">European Union</div>
+            <h4>EU AI Act</h4>
+            <p>Regulation (EU) 2024/1689. High-risk enforcement August 2, 2026. Penalties up to &euro;35M or 7% of global turnover.</p>
+          </div>
+          <div class="standard-card">
+            <div class="jurisdiction">Colorado, USA</div>
+            <h4>Colorado AI Act</h4>
+            <p>SB 24-205. Effective June 30, 2026. Risk management programs, impact assessments, and AI inventory for consequential decisions.</p>
+          </div>
+          <div class="standard-card">
+            <div class="jurisdiction">U.S. Financial Services</div>
+            <h4>U.S. Treasury FS AI RMF</h4>
+            <p>February 2026. Sector-specific control objectives across Govern, Map, Measure, and Manage for financial institutions.</p>
+          </div>
+          <div class="standard-card">
+            <div class="jurisdiction">U.S. Securities Markets</div>
+            <h4>SEC Examination Priorities</h4>
+            <p>AI explicitly named as an examination focus for registered advisers, broker-dealers, and investment companies.</p>
+          </div>
+          <div class="standard-card">
+            <div class="jurisdiction">Singapore</div>
+            <h4>Singapore IMDA MGF &mdash; Agentic AI</h4>
+            <p>January 2026. The first state-level governance framework built specifically for autonomous AI agents. Direct input into Domain 09.</p>
+          </div>
+          <div class="standard-card">
+            <div class="jurisdiction">United States</div>
+            <h4>NIST AI 600-1 (GenAI Profile)</h4>
+            <p>July 2024. Addresses generative AI risks including confabulation, data privacy, information integrity, and content provenance.</p>
+          </div>
+        </div>
       </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-phase">Stage 2</div>
-        <div class="tl-title">Remediation<br>Sprint</div>
-        <div class="tl-time">90 days &middot; fixed fee</div>
-        <ul class="tl-items">
-          <li>Policies, charters, and standards built</li>
-          <li>Vendor DD reviews and memos</li>
-          <li>Incident response playbook</li>
-          <li>Data room-ready governance package</li>
-        </ul>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-phase">Stage 3</div>
-        <div class="tl-title">Advisory<br>Retainer</div>
-        <div class="tl-time">Monthly &middot; 3-month min</div>
-        <ul class="tl-items">
-          <li>Monthly AGVI rescoring</li>
-          <li>AI Risk Intelligence Memo</li>
-          <li>Executive briefings and office hours</li>
-          <li>Continuous regulatory watch</li>
-        </ul>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-phase">Stage 4</div>
-        <div class="tl-title">Platform<br>Engagement</div>
-        <div class="tl-time">Annual &middot; multi-entity</div>
-        <ul class="tl-items">
-          <li>Fund or portfolio-wide playbook</li>
-          <li>Cross-entity AGVI benchmarking</li>
-          <li>New-entity onboarding accelerator</li>
-          <li>Quarterly operating partner briefings</li>
-        </ul>
+      <div class="coverage-card">
+        <div class="big">9 &times; 8</div>
+        <div class="label">Domains &times; Frameworks</div>
+        <p>Every AGVI domain is cross-referenced to specific clauses, articles, and control objectives across eight frameworks &mdash; producing 72 discrete mappings in a single master crosswalk document delivered with every engagement.</p>
       </div>
     </div>
+    <p class="standards-footnote">Managed maturity (60&ndash;79) establishes a defensible regulatory posture &mdash; an organization is positioned to respond to inquiries from any of the mapped frameworks with documented evidence, not narrative answers to structured questions. Optimized maturity (80&ndash;100) represents continuous, frontier-level compliance &mdash; the standard for organizations operating in heavily regulated sectors or facing the most rigorous board, investor, and transaction scrutiny.</p>
   </div>
 </section>
 
@@ -463,6 +484,11 @@ footer p { font-size: 13px; color: var(--slate); }
         <div class="role">General Counsel &amp; CCO</div>
         <h3>Defensible documentation at scale</h3>
         <p>From vendor AI contract provisions to incident response playbooks to EU AI Act classification memos, we build the evidence-based governance infrastructure that protects the organization and holds up under regulatory or transaction scrutiny.</p>
+      </div>
+      <div class="persona-card">
+        <div class="role">PE Operating Partners &amp; Deal Teams</div>
+        <h3>Exit-ready posture across the portfolio</h3>
+        <p>Ensure the AI governance posture across your portfolio holds up under LP due diligence, board scrutiny, and transaction timelines &mdash; and that exit valuations aren't discounted for governance gaps buyers will find in the data room.</p>
       </div>
     </div>
   </div>
@@ -514,10 +540,10 @@ footer p { font-size: 13px; color: var(--slate); }
     <div class="ladder-grid">
       <div class="ladder-card featured">
         <div class="ladder-stage">Stage 1</div>
-        <div class="ladder-name">AGVI Diagnostic</div>
+        <div class="ladder-name">AGVI Exit-Ready Diagnostic</div>
         <div class="ladder-price">$22,500</div>
         <div class="ladder-period">Fixed fee &middot; 4 weeks</div>
-        <div class="ladder-desc">Four-week baseline assessment. A board-ready read on your AI governance posture across all nine AGVI domains.</div>
+        <div class="ladder-desc">Four-week baseline assessment. A board-ready read on your AI governance posture across all nine AGVI domains &mdash; structured to produce the evidence package your board, your regulators, or your next buyer will ask for.</div>
         <ul class="ladder-features">
           <li>Baseline AGVI scorecard</li>
           <li>AI inventory and classification</li>
@@ -582,7 +608,7 @@ footer p { font-size: 13px; color: var(--slate); }
     <div class="section-label" style="text-align:center;">Get Started</div>
     <h2>Ready to close<br>the governance gap?</h2>
     <p>A 30-minute discovery call to assess your AI governance posture, identify the highest-priority gaps, and determine which engagement tier fits your timeline.</p>
-    <a href="https://calendly.com/jordon-pierce-pm/30min" target="_blank" class="btn-primary">Schedule a Discovery Call &rarr;</a>
+    <a href="https://meetings-na2.hubspot.com/jordon-pierce" target="_blank" class="btn-primary">Schedule a Discovery Call &rarr;</a>
   </div>
 </section>
 
@@ -591,6 +617,7 @@ footer p { font-size: 13px; color: var(--slate); }
   <p>PEQUI INTELLIGENCE · pequiintelligence.com</p>
   <p style="margin-top: 4px; font-size: 11px; color: #C9A84C; opacity: 0.7; letter-spacing: 2px;">Board-Ready AI Governance</p>
   <p style="margin-top: 8px; font-size: 11px; opacity: 0.5;">Confidential · AI Governance Advisory Practice</p>
+  <p style="margin-top: 16px; font-size: 10px; opacity: 0.4; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.6;">AGVI&trade; and AI Governance Velocity Index&trade; are trademarks of Pequi Intelligence LLC. &copy; 2026 Pequi Intelligence LLC. All rights reserved.</p>
   <a href="#hero" class="back-to-top">↑ Back to Top</a>
 </footer>
 
