@@ -52,6 +52,15 @@ a { text-decoration: none; color: inherit; }
 .nav.scrolled .nav-about:hover { color: var(--gold-light) !important; }
 .nav-cta { background: var(--gold) !important; color: var(--navy) !important; padding: 10px 24px; border-radius: 6px; font-weight: 600 !important; font-size: 13px !important; transition: all 0.3s; }
 .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; z-index: 200; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); margin: 6px 0; transition: all 0.3s; }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+.mobile-menu { display: none; position: fixed; inset: 0; background: rgba(13,24,41,0.98); backdrop-filter: blur(20px); z-index: 150; flex-direction: column; align-items: center; justify-content: center; gap: 28px; }
+.mobile-menu.active { display: flex; }
+.mobile-menu a { font-family: var(--font-display); font-size: 24px; font-weight: 500; color: var(--ice); transition: color 0.3s; }
+.mobile-menu a:hover { color: var(--gold); }
 
 .hero { min-height: 100vh; background: var(--navy); display: flex; align-items: center; position: relative; overflow: hidden; }
 .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 800px 600px at 20% 50%, rgba(201,168,76,0.07) 0%, transparent 100%), radial-gradient(ellipse 600px 800px at 80% 20%, rgba(200,216,240,0.04) 0%, transparent 100%); pointer-events: none; }
@@ -210,6 +219,7 @@ footer p { font-size: 13px; color: var(--slate); }
   .nav-logo-mark { display: none; }
   .nav-links { display: none; }
   .nav-right { gap: 14px; }
+  .hamburger { display: block; }
   .hero-grid { padding: 120px 20px 80px; }
   .hero-sub { font-size: 16px; margin-bottom: 36px; }
   .hero-stats { flex-direction: row; flex-wrap: wrap; gap: 28px; margin-bottom: 36px; }
@@ -287,9 +297,22 @@ footer p { font-size: 13px; color: var(--slate); }
     <a href="#contact">Contact</a>
   </div>
   <div class="nav-right">
-
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="about.html" onclick="closeMobile()">About</a>
+  <a href="#problem" onclick="closeMobile()">The Challenge</a>
+  <a href="#solution" onclick="closeMobile()">Solution AGVI</a>
+  <a href="#framework" onclick="closeMobile()">Framework</a>
+  <a href="#standards" onclick="closeMobile()">Standards</a>
+  <a href="#pricing" onclick="closeMobile()">Engagements</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
 
 <section class="hero" id="hero">
   <div class="hero-grid">
@@ -630,6 +653,10 @@ window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', windo
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
 });
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); mobileMenu.classList.toggle('active'); document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : ''; });
+function closeMobile() { hamburger.classList.remove('active'); mobileMenu.classList.remove('active'); document.body.style.overflow = ''; }
 </script>
 
 </body>
